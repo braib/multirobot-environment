@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<robot name="turtlebot3_with_manipulator" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- Include TurtleBot3 Waffle Pi -->
+  <xacro:include filename="turtlebot3_waffle_pi.urdf.xacro"/>
+  <xacro:turtlebot3_waffle_pi prefix="tb3_"/>
+
+  <!-- Include OpenManipulator-X -->
+  <xacro:include filename="open_manipulator_x.urdf.xacro"/>
+  <xacro:open_manipulator_x prefix="manip_"/>
+
+  <!-- Attach OpenManipulator-X to TurtleBot3 -->
+  <joint name="manipulator_base_joint" type="fixed">
+    <parent link="tb3_base_link"/> <!-- Base link of TurtleBot3 -->
+    <child link="manip_link1"/> <!-- Base link of OpenManipulator-X -->
+    <origin xyz="0 0 0.1" rpy="0 0 0"/> <!-- Adjust z-axis as needed -->
+  </joint>
+
+</robot>
