@@ -96,7 +96,7 @@ def generate_launch_description():
             package='rviz2',
             executable='rviz2',
             name='rviz2',
-            # arguments=['-d', os.path.join(two_robot_sim_pkg, 'rviz', 'two_robots.rviz')],
+            arguments=['-d', os.path.join(two_robot_sim_pkg, 'config', 'two_robots.rviz')],
             output='screen'
         ),
 
