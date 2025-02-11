@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot name="robot2">
   <!-- Add dummy root link to fix KDL warning -->
-
+<param name="tf_prefix" value="robot2"/>
   <material name="black">
     <color rgba="0 0 0 1"/>
   </material>
@@ -160,16 +160,16 @@
       <max_wheel_acceleration>10.0</max_wheel_acceleration>
 
       <commandTopic>cmd_vel</commandTopic>
-      <odometry_topic>odom</odometry_topic>
+      <!-- <odometry_topic>odom</odometry_topic> -->
 
       <odometry_frame>robot2/odom</odometry_frame>
-      <robot_base_frame>robot2/base_link</robot_base_frame>
-      <!-- <robot_base_frame>robot2/dummy_root</robot_base_frame> -->
+      <!-- <robot_base_frame>robot2/base_link</robot_base_frame> -->
+      <robot_base_frame>robot2/dummy_root</robot_base_frame>
 
 
       <publish_odom>true</publish_odom>
       <publish_odom_tf>true</publish_odom_tf>
-      <publish_wheel_tf>true</publish_wheel_tf>
+      <publish_wheel_tf>false</publish_wheel_tf>
     </plugin>
   </gazebo>
 
@@ -286,8 +286,8 @@
           <remapping>~/out:=scan</remapping>
           <!-- <argument>~/robot2/lidar_plugin/outut:=/robot2/scan</argument> -->
         </ros>
-        <frame_name>lidar_link</frame_name>
-        <!-- <output_type>robot2/sensor_msgs/LaserScan</output_type> -->
+        <frame_name>robot2/lidar_link</frame_name> 
+        <output_type>sensor_msgs/LaserScan</output_type>
         <topic_name>scan</topic_name>
       </plugin>
       

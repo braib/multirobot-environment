@@ -44,10 +44,11 @@ def generate_launch_description():
                 'use_sim_time': True,
                 'frame_prefix': 'robot1/'  # Important for TF tree
             }],
-            remappings=[
-                ('/tf', 'tf'),
-                ('/tf_static', 'tf_static')
-            ],
+            # remappings=[
+            #     ('/tf', 'tf'),
+            #     ('/tf_static', 'tf_static'),
+            #     ('/joint_states', 'joint_states')
+            # ],
             output='screen'
         ),
 
@@ -64,33 +65,34 @@ def generate_launch_description():
         ),
 
         # Robot 2
-        Node(
-            package='robot_state_publisher',
-            executable='robot_state_publisher',
-            namespace='robot2',
-            parameters=[{
-                'robot_description': robot2_description,
-                'use_sim_time': True,
-                'frame_prefix': 'robot2/'  # Important for TF tree
-            }],
-            remappings=[
-                ('/tf', 'tf'),
-                ('/tf_static', 'tf_static')
-            ],
-            output='screen'
-        ),
+        # Node(
+        #     package='robot_state_publisher',
+        #     executable='robot_state_publisher',
+        #     namespace='robot2',
+        #     parameters=[{
+        #         'robot_description': robot2_description,
+        #         'use_sim_time': True,
+        #         'frame_prefix': 'robot2/'  # Important for TF tree
+        #     }],
+        #     # remappings=[
+        #     #     ('/tf', 'tf'),
+        #     #     ('/tf_static', 'tf_static'),
+        #     #     ('/joint_states', 'joint_states')
+        #     # ],
+        #     output='screen'
+        # ),
 
-        Node(
-            package='gazebo_ros',
-            executable='spawn_entity.py',
-            arguments=[
-                '-entity', 'robot2',
-                '-topic', 'robot2/robot_description',  # Use topic instead of file
-                '-x', '0.0', '-y', '-0.5', '-z', '0.1',
-                '-robot_namespace', 'robot2'
-            ],
-            output='screen'
-        ),
+        # Node(
+        #     package='gazebo_ros',
+        #     executable='spawn_entity.py',
+        #     arguments=[
+        #         '-entity', 'robot2',
+        #         '-topic', 'robot2/robot_description',  # Use topic instead of file
+        #         '-x', '0.0', '-y', '-0.5', '-z', '0.1',
+        #         '-robot_namespace', 'robot2'
+        #     ],
+        #     output='screen'
+        # ),
 
         # Optional RViz (uncomment if needed)
         Node(

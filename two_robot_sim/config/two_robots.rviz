@@ -115,43 +115,13 @@ Visualization Manager:
       Frame Timeout: 15
       Frames:
         All Enabled: true
-        dummy_root:
-          Value: true
-        left_wheel:
-          Value: true
-        right_wheel:
-          Value: true
-        robot1/base_link:
-          Value: true
-        robot1/camera_link:
-          Value: true
-        robot1/caster_wheel:
-          Value: true
         robot1/dummy_root:
-          Value: true
-        robot1/left_wheel:
-          Value: true
-        robot1/lidar_link:
           Value: true
         robot1/odom:
           Value: true
-        robot1/right_wheel:
-          Value: true
-        robot2/base_link:
-          Value: true
-        robot2/camera_link:
-          Value: true
-        robot2/caster_wheel:
-          Value: true
         robot2/dummy_root:
           Value: true
-        robot2/left_wheel:
-          Value: true
-        robot2/lidar_link:
-          Value: true
         robot2/odom:
-          Value: true
-        robot2/right_wheel:
           Value: true
       Marker Scale: 1
       Name: TF
@@ -160,11 +130,8 @@ Visualization Manager:
       Show Names: false
       Tree:
         robot1/odom:
-          dummy_root:
-            left_wheel:
-              {}
-            right_wheel:
-              {}
+          robot1/dummy_root:
+            {}
       Update Interval: 0
       Value: true
     - Alpha: 1
@@ -197,7 +164,7 @@ Visualization Manager:
         Filter size: 10
         History Policy: Keep Last
         Reliability Policy: Reliable
-        Value: /robot1/scan
+        Value: ""
       Use Fixed Frame: true
       Use rainbow: true
       Value: true
