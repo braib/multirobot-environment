@@ -124,7 +124,7 @@
     <inertial>
       <mass value="1"/>
       <origin xyz="0 0 0"/>
-      <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
+      <inertia ixx="0.01" ixy="0.01" ixz="0.01" iyy="0.01" iyz="0.01" izz="0.01"/>
     </inertial>
     <collision>
       <origin xyz="0 0 0"/>
@@ -162,7 +162,7 @@
       <commandTopic>cmd_vel</commandTopic>
 
       <odometry_frame>robot1/odom</odometry_frame>
-      <robot_base_frame>dummy_root</robot_base_frame>
+      <robot_base_frame>robot1/dummy_root</robot_base_frame>
       <!-- <robot_base_frame>robot1/dummy_root</robot_base_frame> -->
 
 

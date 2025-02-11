@@ -162,7 +162,7 @@
       <commandTopic>cmd_vel</commandTopic>
 
       <odometry_frame>robot2/odom</odometry_frame>
-      <robot_base_frame>dummy_root</robot_base_frame>
+      <robot_base_frame>robot2/dummy_root</robot_base_frame>
       <!-- <robot_base_frame>robot2/dummy_root</robot_base_frame> -->
 
 

@@ -12,6 +12,7 @@ def generate_launch_description():
 
     # Path configurations
     world_file = os.path.join(two_robot_sim_pkg, 'worlds', 'empty_world.world')
+    rviz_path = os.path.join(two_robot_sim_pkg, 'config', 'two_robot.rviz')
     robot1_urdf = os.path.join(two_robot_sim_pkg, 'urdf', 'robot1.urdf')
     robot2_urdf = os.path.join(two_robot_sim_pkg, 'urdf', 'robot2.urdf')
 
@@ -21,15 +22,6 @@ def generate_launch_description():
         robot2_description = f.read()
 
     return LaunchDescription([
-        # Launch Gazebo with empty world
-        # IncludeLaunchDescription(
-        #     PythonLaunchDescriptionSource(
-        #         os.path.join(gazebo_ros_pkg, 'launch', 'gazebo.launch.py')
-        #     ),
-        #     launch_arguments={
-        #         'world': world_file
-        #     }.items()
-        # ),
 
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(
@@ -96,7 +88,7 @@ def generate_launch_description():
             package='rviz2',
             executable='rviz2',
             name='rviz2',
-            arguments=['-d', os.path.join(two_robot_sim_pkg, 'config', 'two_robots.rviz')],
+            arguments=['-d', rviz_path],
             output='screen'
         ),
 
@@ -117,4 +109,23 @@ def generate_launch_description():
             parameters=[{'use_sim_time': True}],
             output='screen'
         ),
+
+
+        # # For Robot 1
+        # Node(
+        #     package='joint_state_publisher_gui',
+        #     executable='joint_state_publisher_gui',
+        #     namespace='robot1',
+        #     parameters=[{'use_sim_time': True}],
+        #     output='screen'
+        # ),
+
+        # # For Robot 2 
+        # Node(
+        #     package='joint_state_publisher_gui',
+        #     executable='joint_state_publisher_gui',
+        #     namespace='robot2',
+        #     parameters=[{'use_sim_time': True}],
+        #     output='screen'
+        # ),
     ])
