@@ -124,7 +124,7 @@
     <inertial>
       <mass value="1"/>
       <origin xyz="0 0 0"/>
-      <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
+      <inertia ixx="0.01" ixy="0.01" ixz="0.01" iyy="0.01" iyz="0.01" izz="0.01"/>
     </inertial>
     <collision>
       <origin xyz="0 0 0"/>
@@ -153,16 +153,17 @@
       </ros>
       <left_joint>left_wheel_joint</left_joint>
       <right_joint>right_wheel_joint</right_joint>
-      <wheel_separation>0.4</wheel_separation>
-      <wheel_diameter>0.1</wheel_diameter>
+      <wheel_separation>0.45</wheel_separation>
+      <wheel_diameter>0.2</wheel_diameter>
 
       <max_wheel_torque>200</max_wheel_torque>
       <max_wheel_acceleration>10.0</max_wheel_acceleration>
 
       <commandTopic>cmd_vel</commandTopic>
+      <odometry_topic>odom</odometry_topic>
 
       <odometry_frame>robot2/odom</odometry_frame>
-      <robot_base_frame>robot2/dummy_root</robot_base_frame>
+      <robot_base_frame>robot2/base_link</robot_base_frame>
       <!-- <robot_base_frame>robot2/dummy_root</robot_base_frame> -->
 
 
@@ -282,11 +283,12 @@
       <plugin name="lidar_plugin" filename="libgazebo_ros_ray_sensor.so">
         <ros>
           <namespace>/robot2</namespace>
+          <remapping>~/out:=scan</remapping>
           <!-- <argument>~/robot2/lidar_plugin/outut:=/robot2/scan</argument> -->
         </ros>
         <frame_name>lidar_link</frame_name>
         <!-- <output_type>robot2/sensor_msgs/LaserScan</output_type> -->
-        <!-- <topic_name>scan</topic_name> -->
+        <topic_name>scan</topic_name>
       </plugin>
       
     </sensor>

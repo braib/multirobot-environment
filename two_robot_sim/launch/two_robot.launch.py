@@ -12,12 +12,13 @@ def generate_launch_description():
 
     # Path configurations
     world_file = os.path.join(two_robot_sim_pkg, 'worlds', 'empty_world.world')
-    rviz_path = os.path.join(two_robot_sim_pkg, 'config', 'two_robot.rviz')
+    rviz_path = os.path.join(two_robot_sim_pkg, 'config', 'two_robots.rviz')
     robot1_urdf = os.path.join(two_robot_sim_pkg, 'urdf', 'robot1.urdf')
     robot2_urdf = os.path.join(two_robot_sim_pkg, 'urdf', 'robot2.urdf')
 
     with open(robot1_urdf, 'r') as f:
         robot1_description = f.read()
+
     with open(robot2_urdf, 'r') as f:
         robot2_description = f.read()
 
@@ -43,6 +44,10 @@ def generate_launch_description():
                 'use_sim_time': True,
                 'frame_prefix': 'robot1/'  # Important for TF tree
             }],
+            remappings=[
+                ('/tf', 'tf'),
+                ('/tf_static', 'tf_static')
+            ],
             output='screen'
         ),
 
@@ -68,6 +73,10 @@ def generate_launch_description():
                 'use_sim_time': True,
                 'frame_prefix': 'robot2/'  # Important for TF tree
             }],
+            remappings=[
+                ('/tf', 'tf'),
+                ('/tf_static', 'tf_static')
+            ],
             output='screen'
         ),
 
@@ -97,7 +106,10 @@ def generate_launch_description():
             package='joint_state_publisher',
             executable='joint_state_publisher',
             namespace='robot1',
-            parameters=[{'use_sim_time': True}],
+            parameters=[
+                {'use_sim_time': True},
+                {'source_list': ['joint_states']}
+            ],
             output='screen'
         ),
 
@@ -106,7 +118,10 @@ def generate_launch_description():
             package='joint_state_publisher',
             executable='joint_state_publisher',
             namespace='robot2',
-            parameters=[{'use_sim_time': True}],
+            parameters=[
+                {'use_sim_time': True},
+                {'source_list': ['joint_states']}
+            ],
             output='screen'
         ),
 

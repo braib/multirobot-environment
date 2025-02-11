@@ -153,16 +153,17 @@
       </ros>
       <left_joint>left_wheel_joint</left_joint>
       <right_joint>right_wheel_joint</right_joint>
-      <wheel_separation>0.4</wheel_separation>
-      <wheel_diameter>0.1</wheel_diameter>
+      <wheel_separation>0.45</wheel_separation>
+      <wheel_diameter>0.2</wheel_diameter>
 
       <max_wheel_torque>200</max_wheel_torque>
       <max_wheel_acceleration>10.0</max_wheel_acceleration>
 
       <commandTopic>cmd_vel</commandTopic>
+      <odometry_topic>odom</odometry_topic>
 
       <odometry_frame>robot1/odom</odometry_frame>
-      <robot_base_frame>robot1/dummy_root</robot_base_frame>
+      <robot_base_frame>robot1/base_link</robot_base_frame>
       <!-- <robot_base_frame>robot1/dummy_root</robot_base_frame> -->
 
 
@@ -282,11 +283,12 @@
       <plugin name="lidar_plugin" filename="libgazebo_ros_ray_sensor.so">
         <ros>
           <namespace>/robot1</namespace>
+          <remapping>~/out:=scan</remapping>
           <!-- <argument>~/robot1/lidar_plugin/outut:=/robot1/scan</argument> -->
         </ros>
         <frame_name>lidar_link</frame_name>
         <!-- <output_type>robot1/sensor_msgs/LaserScan</output_type> -->
-        <!-- <topic_name>scan</topic_name> -->
+        <topic_name>scan</topic_name>
       </plugin>
       
     </sensor>
