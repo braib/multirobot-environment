@@ -1,6 +1,5 @@
 <?xml version="1.0" ?>
-<robot name="turtlebot3_waffle_pi" xmlns:xacro="http://ros.org/wiki/xacro">
-  <!-- <xacro:include filename="$(find om_x_tb3_w_pi)/urdf/common_properties.urdf"/> -->
+<robot name="turtlebot3_waffle_pi">
 
   <!-- Init colour -->
   <material name="black">

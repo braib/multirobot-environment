@@ -8,7 +8,7 @@ import launch_ros.actions
 def generate_launch_description():
     # Find the package path
     pkg_path = launch_ros.substitutions.FindPackageShare('om_x_tb3_w_pi').find('om_x_tb3_w_pi')
-    default_model_path = os.path.join(pkg_path, 'urdf', 'turtlebot3_waffle_pi.urdf')
+    default_model_path = os.path.join(pkg_path, 'urdf', 'combined_robot.urdf')
 
     # Read the URDF file
     with open(default_model_path, 'r') as infp:

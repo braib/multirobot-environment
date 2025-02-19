@@ -10,7 +10,9 @@ from launch_ros.substitutions import FindPackageShare
 def generate_launch_description():
     # Paths to resources
     pkg_share = FindPackageShare(package='om_x_tb3_w_pi').find('om_x_tb3_w_pi')
-    default_model_path = os.path.join(pkg_share, 'urdf', 'combined_robot_xacro.urdf.xacro')
+    # default_model_path = os.path.join(pkg_share, 'urdf', 'combined_robot_xacro.urdf.xacro')
+    default_model_path = os.path.join(pkg_share, 'urdf', 'combined_gazebo.urdf.xacro')
+
     default_rviz_config_path = os.path.join(pkg_share, 'rviz', 'model.rviz')
 
     # Launch configuration variables
